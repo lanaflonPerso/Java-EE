@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,23 +20,16 @@
         </p>
         <p>
             Récupération de la liste :
-            <%
-            List<Integer> liste = (List<Integer>) request.getAttribute( "liste" );
-            for( Integer i : liste ){
-                out.println(i + " : ");	
-            }
-            %>
+            <c:forEach var="element" items="${liste}">
+            	${element} :
+            </c:forEach>
         </p>
         <p>
             Récupération du jour du mois :
-            <%
-            Integer jourDuMois = (Integer) request.getAttribute( "jour" );
-            if ( jourDuMois % 2 == 0 ){
-                out.println("Jour pair : " + jourDuMois);
-            } else {
-                out.println("Jour impair : " + jourDuMois);
-            }
-            %>
+            <c:choose>
+            	<c:when test="${jour % 2 == 0}">Jour pair : ${jour}</c:when>
+            	<c:otherwise>Jour impair : ${jour}</c:otherwise>
+            </c:choose>
         </p>
     </body>
 </html>
