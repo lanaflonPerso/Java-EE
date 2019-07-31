@@ -26,6 +26,10 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	-->
+	
+	<listener>
+    	<listener-class>com.sdzee.config.InitialisationDaoFactory</listener-class>
+	</listener>
     
     <servlet>
 		<servlet-name>Inscription</servlet-name>
@@ -65,6 +69,11 @@
 			<param-value>/home/stagiaire/git/Java-EE/pro/files/</param-value> 
 		</init-param>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>GestionTestJDBC</servlet-name>
+		<servlet-class>com.sdzee.servlets.GestionTestJDBC</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>Inscription</servlet-name>
@@ -89,6 +98,11 @@
 	<servlet-mapping>
 		<servlet-name>Download</servlet-name>
 		<url-pattern>/download/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GestionTestJDBC</servlet-name>
+		<url-pattern>/testjdbc</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

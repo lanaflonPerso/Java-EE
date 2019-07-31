@@ -22,7 +22,6 @@ public class Download extends HttpServlet {
          * dans le web.xml
          */
         String chemin = this.getServletConfig().getInitParameter( "chemin" );
-        System.out.println( chemin );
 
         /*
          * Récupération du chemin du fichier demandé au sein de l'URL de la
